@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-parchment-100 text-ink-800 font-sans antialiased;
+  background-image:
+    radial-gradient(rgba(74, 52, 35, 0.035) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+h1, h2, h3, h4 {
+  @apply font-serif text-ink-900;
+}
+
+/* Visible, high-contrast keyboard focus ring everywhere — WCAG 2.1 AA */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid theme('colors.brass.500');
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.shelf-divider {
+  @apply relative h-3;
+}
+.shelf-divider::after {
+  content: '';
+  @apply absolute inset-x-0 top-0 h-1.5 bg-walnut-700 shadow-shelf rounded-sm;
+}
+
+.skeleton {
+  @apply animate-pulse bg-parchment-200 rounded;
+}
+
+::selection {
+  background: theme('colors.brass.400');
+  color: theme('colors.ink.900');
+}
